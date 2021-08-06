@@ -152,10 +152,10 @@ const draggableComponent = defineComponent({
       return list ? list : this.modelValue;
     },
 
-    getKey() {
+    getKey(element) {
       const { itemKey } = this;
       if (typeof itemKey === "function") {
-        return itemKey;
+        return itemKey(element);
       }
       return element => element[itemKey];
     }
